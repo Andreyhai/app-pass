@@ -1,0 +1,97 @@
+.aside {
+  height: 90vh;
+  width: 20%;
+  border: 1px solid #000;
+  background: #F9FBE9;
+
+  &__menu {
+    padding: 30px 100px 30px 30px;
+    display: flex;
+    align-items: center;
+    &icon {
+      width: 40px;
+      height: 40px;
+    }
+    &title {
+      padding-left: 30px;
+      color: #000;
+      text-align: center;
+      font-family: Italianno;
+      font-size: 50px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+
+  &__links {
+    &_link {
+      display: flex;
+      padding: 20px 0 10px 50px;
+      cursor: pointer;
+      img {
+        width: 30px;
+        height: 30px;
+        opacity: 0;
+      }
+
+      &item {
+        padding-left: 10px;
+        color: #000;
+        font-family: Caladea;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+      }
+    }
+
+    &_link:hover {
+      img {
+        opacity: 1;
+      }
+    }
+    &_link:hover {
+      div {
+        color: #CD7309;
+      }
+    }
+  }
+
+  &__botton {
+    height: 53vh;
+    //background: #000;
+    display: flex;
+    align-items: end;
+    padding: 20px;
+    justify-content: space-between;
+    &_first {
+      color: #000;
+      font-family: Caladea;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    &_second {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      img {
+        width: 20px;
+        height: 20px;
+      }
+      a {
+        display: flex;
+        align-items: end;
+        color: #000;
+        text-align: center;
+        font-family: Kanit;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 250;
+        line-height: normal;
+      }
+    }
+  }
+}
