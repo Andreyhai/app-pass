@@ -3,12 +3,10 @@ import style from "./Asside.module.css";
 import menuIcon from "../../sourse/images/icons/menu-icon.png";
 import logo from "../../sourse/images/logo/logo.png";
 import rubish from "../../sourse/images/icons/rubish.png";
-import rabish from "../../sourse/images/icons/rabish.png";
 import {Link} from "react-router-dom";
 
 const MyLink = (props) => {
     const name = props.name;
-    let status = false;
 
     return (
         <div className={style.aside__links_link}>
@@ -16,7 +14,7 @@ const MyLink = (props) => {
             <div className={style.aside__links_linkitem}>{name}</div>
         </div>
     )
-}
+};
 
 const Aside = () => {
     return (

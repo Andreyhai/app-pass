@@ -8,7 +8,7 @@ import strel1 from "../../sourse/images/icons/right.png";
 import strel2 from "../../sourse/images/icons/left.png";
 import axios from "axios";
 import {Link} from "react-router-dom";
-import {ADMIN_ROUTE} from "../../utils/consts";
+import {ADMIN_ROUTE, LOGIN_ROUTE} from "../../utils/consts";
 
 const __URL__ = "https://localhost:8080/developer/"
 const Login = (props) => {
@@ -23,44 +23,24 @@ const Login = (props) => {
         setStatus(!status)
     }
 
-    const sendRegister = (e) => {
-        // e.preventDefault()
+
+    const sendData = (e) => {
         if (password1 === password2) {
+            e.preventDefault()
             axios.post(
-                __URL__ + "register",
+                "http://localhost:8080",
                 {
-                    "email": login,
-                    "password": password1
+                    "email" : login,
+                    "password" : password1,
                 }
             ).then(res => {
-                if (res) {
-                    // sendData();
-                    // return window.location.replace()
-                }
+                alert("получилось!")
             }).catch(() => {
-                alert("Некорректная почта!")
+                console.log("Некоректная почта!")
             })
         } else {
-          alert("Пароли не совпадают!")
+            alert("Пароли не совпадают!")
         }
-    }
-
-    const sendLogin = (e) => {
-        // e.preventDefault()
-        axios.post(
-            __URL__ + "login",
-            {
-                "login": login,
-                "password": password1
-            }
-        ).then(res => {
-            if (res) {
-                // sendData();
-                // return window.location.replace()
-            }
-        }).catch(() => {
-            alert("Некорректная почта!")
-        })
     }
 
     return (
@@ -73,7 +53,7 @@ const Login = (props) => {
 
             <div className={style.form}>
                 <div className={style.form__close}>
-                    <Link to={ADMIN_ROUTE}>
+                    <Link to={LOGIN_ROUTE}>
                     <div className={style.form__close_block}>
                         <img src={closeIcon} alt="closeIcon"/>
                     </div>
@@ -115,11 +95,11 @@ const Login = (props) => {
                     </div>
                 }
                 <div className={style.form__button}>
-                    <div className={style.form__button_button} onClick={ () => {
+                    <div className={style.form__button_button} onClick={ (e) => {
                         if (status) {
-                            sendRegister()
+                            sendData(e)
                         } else {
-                            sendLogin()
+                            sendData(e)
                         }
                     }
                     }>

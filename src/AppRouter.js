@@ -9,9 +9,10 @@ import Login from "./pages/Login/Login";
 import Admin from "./pages/Admin/Admin";
 
 const AppRouter = () => {
+
     return (
         <Routes>
-            <Route path={HOME_ROUTE} element={<Admin />} />
+            <Route path={HOME_ROUTE} element={<Home />} />
             <Route path={ERROR_ROUTE} element={<ErrorPage />} />
             <Route path={LOGIN_ROUTE} element={<Login />} />
             <Route path={ADMIN_ROUTE} element={<Admin />} />
