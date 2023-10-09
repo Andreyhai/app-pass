@@ -1,12 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import style from "./Home.module.css";
 import {ERROR_ROUTE, LOGIN_ROUTE} from "../../utils/consts";
 import {deleteCookie, getCookie, setCookie} from "../../utils/cookie";
 import axios from "axios";
 import Header from "../../components/Header/Header";
+import Modal from "../../components/modal/Modal";
 const Home = (props) => {
 
+    const [modalActive, setModalActive] = useState(false)
+
     if (getCookie("jwt")) {
+
+
         axios.get(
             "url",
             {headers: {
@@ -21,20 +26,31 @@ const Home = (props) => {
                 window.location.replace(LOGIN_ROUTE)
             }
         )
+
+
+
+
+    // console.log(modalActive)
+
         return (
-            <div className={style.body}>
-                <div className="flex justify-center" >
-                    <div className='w-full'>
-                        <div className='flex flex-wrap justify-center' style={{margin: "0 auto",paddingTop: "0px", maxWidth: "1460px", minWidth: "300px"}}>
-                            <Header />
-                        </div>
-                    </div>
-                </div>
+            <div className={style.body} >
+                <Header />
+                <button style={{
+                    width: "50vw",
+                    height: "20vh",
+                    margin: "0 auto",
+                    paddingTop: "10vh",
+                    zIndex: 2
+                }}
+                        // onClick={() => setModalActive(!modalActive)}
+                >change</button>
+                {/*<Modal active={modalActive} setActive={setModalActive()}/>*/}
             </div>
         );
-    } else {
-        window.location.replace(LOGIN_ROUTE)
     }
+        // else {
+    //     window.location.replace(LOGIN_ROUTE)
+    // }
 };
 
 

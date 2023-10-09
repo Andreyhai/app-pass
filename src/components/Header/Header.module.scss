@@ -10,11 +10,14 @@
 }
 
 .header {
+  position: fixed;
   display: grid;
   grid-template-columns: 15% 75% 10%;
   align-items: center;
   justify-content: center;
-  height: 10vh;
+  height: 10%;
+  min-height: 90px;
+  min-width: 1200px;
   width: 100%;
   flex-shrink: 0;
   border: 1px solid #000;
