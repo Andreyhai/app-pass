@@ -1,7 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import style from "./Content.module.css";
+import bin from "../../sourse/images/icons/bin.png"
+import {HOME_ROUTE} from "../../utils/consts";
 
 const Content = (props) => {
+
+    const [login, setLogin] = useState("");
+    const [password, setPassword] = useState("");
+
+    const [list, setList] = useState(props.list);
 
     return (
         <section className={style.content}>
@@ -32,12 +39,17 @@ const Content = (props) => {
                                             fontSize: "170%",
                                             width: "100%",
                                             height: "80%",
-                                            background: "#ef9f32",
+                                            background: "#ecbf83",
                                             borderRadius:"40px",
-                                            paddingLeft: "20px"
-                                        }} type={"text"} placeholder={item.name}>
-                                            {/*{item.name}*/}
-                                        </input>
+                                            paddingLeft: "20px",
+                                        }} type={"text"} placeholder={item.name} />
+                                        <img src={bin} alt="bin" style={{
+                                            width: "10%",
+                                            height: "50%"
+                                        }} onClick={(event) => {
+                                            console.log(item.name);
+                                            window.location.replace(HOME_ROUTE)
+                                        }}/>
                                     </div>
 
 
@@ -53,18 +65,17 @@ const Content = (props) => {
                                             fontSize: "30px",
                                             justifySelf: "start"
                                         }}>login:</div>
-                                        <div style={{
+                                        <input style={{
                                             display: "flex",
                                             alignItems: "center",
                                             justifyContent: "center",
                                             fontSize: "170%",
                                             width: "100%",
                                             height: "80%",
-                                            background: "#ef9f32",
-                                            borderRadius:"40px"
-                                        }}>
-                                            {item.login}
-                                        </div>
+                                            background: "#ecbf83",
+                                            borderRadius:"40px",
+                                            paddingLeft: "20px",
+                                        }} type={"text"} placeholder={item.login} onChange={(event) => setLogin(event.target.value)} />
                                     </div>
 
 
@@ -81,18 +92,64 @@ const Content = (props) => {
                                             fontSize: "30px",
                                             justifySelf: "start"
                                         }}>password:</div>
-                                        <div style={{
+                                        <input style={{
                                             display: "flex",
                                             alignItems: "center",
                                             justifyContent: "center",
                                             fontSize: "170%",
                                             width: "100%",
                                             height: "80%",
-                                            background: "#ef9f32",
-                                            borderRadius:"40px"
-                                        }}>
-                                            {item.pass}
-                                        </div>
+                                            background: "#ecbf83",
+                                            borderRadius:"40px",
+                                            paddingLeft: "20px"
+                                        }} type={"text"} placeholder={item.pass} onChange={(event) => setPassword(event.target.value)} />
+                                    </div>
+                                    <div style={{
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        gap: "10px",
+                                    }}>
+                                        {/*<div style={{*/}
+                                        {/*    display: "flex",*/}
+                                        {/*    alignItems: "center",*/}
+                                        {/*    justifyContent: "center",*/}
+                                        {/*    fontSize: "170%",*/}
+                                        {/*    width: "50%",*/}
+                                        {/*    height: "100%",*/}
+                                        {/*    background: "#ff001e",*/}
+                                        {/*    borderRadius:"40px",*/}
+                                        {/*    paddingLeft: "20px",*/}
+                                        {/*    cursor: "pointer",*/}
+                                        {/*}}>удалить</div>*/}
+                                        <div style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            fontSize: "170%",
+                                            width: "50%",
+                                            height: "100%",
+                                            background: "#c7ea6e",
+                                            borderRadius:"40px",
+                                            // paddingLeft: "20px",
+                                            cursor: "pointer",
+                                        }} onClick={(event) => {
+                                            if (login !== "" && password !== "") {
+                                                console.log({
+                                                    name: item.name,
+                                                    login: login,
+                                                    password: password,
+                                                })
+                                            } else {
+                                                console.log(
+                                                    {
+                                                        name: item.name,
+                                                        login: item.login,
+                                                        password: item.pass,
+                                                    }
+                                                )
+                                            }
+
+                                            }}>сохранить</div>
                                     </div>
                                 </div>
                             )
