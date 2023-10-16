@@ -1,0 +1,44 @@
+.content {
+  margin-top: 12vh;
+  margin-left: 30px;
+  margin-right: 30px;
+  width: 60vw;
+  height: fit-content;
+  border: 2px solid rgba(0, 2, 72, 0.97);
+  border-radius: 25px;
+  backdrop-filter: blur(20px);
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-width: 630px;
+  z-index: 1; }
+  .content__header {
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: xxx-large; }
+  .content__main {
+    height: 85%;
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
+  .content_item {
+    display: grid;
+    grid-gap: 15px;
+    width: 100%;
+    padding: 30px;
+    margin: 10px 0 30px 0;
+    background: #F9FBE9;
+    border: 1px solid black;
+    border-radius: 25px;
+    min-width: 600px;
+    max-width: 1000px; }
+
+input::placeholder {
+  color: #000000; }
+
+/*# sourceMappingURL=Content.module.css.map */
