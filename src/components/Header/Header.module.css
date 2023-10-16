@@ -17,7 +17,7 @@
   min-width: 1200px;
   width: 100%;
   flex-shrink: 0;
-  border: 1px solid #000;
+  border-bottom: 2px solid rgba(0, 2, 72, 0.97);
   background: #F9FBE9; }
   .header .header__logo {
     display: flex;

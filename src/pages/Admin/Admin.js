@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from "../../components/Header/Header";
 import Aside from "../../components/Asside/Asside";
-import Content from "../../components/Content/Content";
 import {ERROR_ROUTE, LOGIN_ROUTE} from "../../utils/consts";
 import {deleteCookie, getCookie} from "../../utils/cookie";
 import axios from "axios";
@@ -33,7 +32,7 @@ const Admin = () => {
             <Header />
             <div className={"flex"}>
                 <Aside />
-                <Content />
+                {/*<Content />*/}
             </div>
 
         </div>

@@ -1,8 +1,13 @@
 .aside {
+  margin-left: 0.5vw;
+  border-radius: 25px;
   height: 90vh;
-  width: 20%;
-  border: 1px solid #000;
+  width: 19vw;
+  border: 2px solid #000;
   background: #F9FBE9;
+  margin-top: 12vh;
+  padding-top: 20px;
+  border: 2px solid rgba(0,2,72,0.97);
 
   &__menu {
     padding: 30px 100px 30px 30px;

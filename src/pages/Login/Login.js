@@ -8,10 +8,13 @@ import strel1 from "../../sourse/images/icons/right.png";
 import strel2 from "../../sourse/images/icons/left.png";
 import axios from "axios";
 import {Link} from "react-router-dom";
-import {ADMIN_ROUTE, LOGIN_ROUTE} from "../../utils/consts";
+import {ADMIN_ROUTE, HOME_ROUTE, LOGIN_ROUTE} from "../../utils/consts";
+import { deleteCookie, setCookie } from '../../utils/cookie';
 
 const __URL__ = "https://localhost:8080/developer/"
 const Login = (props) => {
+
+    deleteCookie("jwt")
 
     const [status, setStatus] = useState(props.status);
 
@@ -25,22 +28,25 @@ const Login = (props) => {
 
 
     const sendData = (e) => {
-        if (password1 === password2) {
-            e.preventDefault()
-            axios.post(
-                "http://localhost:8080",
-                {
-                    "email" : login,
-                    "password" : password1,
-                }
-            ).then(res => {
-                alert("получилось!")
-            }).catch(() => {
-                console.log("Некоректная почта!")
-            })
-        } else {
-            alert("Пароли не совпадают!")
-        }
+        // if (password1 === password2) {
+        e.preventDefault()
+        axios.post(
+            __URL__ + "login",
+            {
+                "email" : login,
+                "password" : password1,
+            }
+        ).then(rez => {
+            if (rez.data != "incorrect") {
+                setCookie("jwt", rez.data)
+                window.location.replace(HOME_ROUTE)
+            }
+        }).catch(() => {
+            console.log("Некоректная почта!")
+        })
+        // } else {
+        // alert("Пароли не совпадают!")
+        // }
     }
 
     return (
@@ -54,9 +60,9 @@ const Login = (props) => {
             <div className={style.form}>
                 <div className={style.form__close}>
                     <Link to={LOGIN_ROUTE}>
-                    <div className={style.form__close_block}>
-                        <img src={closeIcon} alt="closeIcon"/>
-                    </div>
+                        <div className={style.form__close_block}>
+                            <img src={closeIcon} alt="closeIcon"/>
+                        </div>
                     </Link>
                 </div>
                 <div className={style.form__title}>
@@ -72,7 +78,7 @@ const Login = (props) => {
                             }}/>
                         </div>
                         <div className={style.form__grid__input_t}>
-                            <input type="text" placeholder="пароль" onChange={(e) => {
+                            <input type="password" placeholder="пароль" onChange={(e) => {
                                 setPassword1("");
                                 setPassword1(e.target.value)
                             }}/>
