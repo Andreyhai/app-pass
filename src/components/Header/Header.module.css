@@ -10,7 +10,7 @@
   z-index: 2;
   position: fixed;
   display: grid;
-  grid-template-columns: 15% 75% 10%;
+  grid-template-columns: 2fr 5fr 1fr 2fr;
   align-items: center;
   justify-content: center;
   height: 10%;
@@ -18,8 +18,7 @@
   min-width: 1200px;
   width: 100%;
   flex-shrink: 0;
-  border-bottom: 2px solid rgba(0, 2, 72, 0.97);
-  background: #F9FBE9; }
+  border-bottom: 2px solid rgba(0, 2, 72, 0.97); }
   .header .header__logo {
     display: flex;
     flex-wrap: nowrap;

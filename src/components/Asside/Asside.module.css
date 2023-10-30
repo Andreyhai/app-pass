@@ -1,67 +1,37 @@
 .aside {
+  max-width: 330px;
   margin-left: 0.5vw;
   border-radius: 25px;
-  height: 90vh;
+  height: min-content;
   width: 19vw;
   border: 2px solid #000;
   background: #F9FBE9;
   margin-top: 12vh;
-  padding-top: 20px;
-  border: 2px solid rgba(0, 2, 72, 0.97); }
-  .aside__menu {
-    padding: 30px 100px 30px 30px;
-    display: flex;
-    align-items: center; }
-    .aside__menuicon {
-      width: 40px;
-      height: 40px; }
-    .aside__menutitle {
-      padding-left: 30px;
-      color: #000;
-      text-align: center;
-      font-family: Italianno;
-      font-size: 50px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal; }
-  .aside__links_link {
-    display: flex;
-    padding: 20px 0 10px 50px;
-    cursor: pointer; }
-    .aside__links_link img {
-      width: 30px;
-      height: 30px;
-      opacity: 0; }
-    .aside__links_linkitem {
-      padding-left: 10px;
-      color: #000;
-      font-family: Caladea;
-      font-size: 30px;
-      font-style: normal;
-      font-weight: 300;
-      line-height: normal; }
-  .aside__links_link:hover img {
-    opacity: 1; }
-  .aside__links_link:hover div {
-    color: #CD7309; }
+  padding: 20px;
+  border: 2px solid rgba(0, 2, 72, 0.97);
+  min-width: 250px; }
+  .aside__title {
+    height: 150%;
+    width: 100%;
+    font-size: 200%; }
   .aside__botton {
-    height: 53vh;
+    width: 100%;
     display: flex;
     align-items: end;
-    padding: 20px;
     justify-content: space-between; }
     .aside__botton_first {
       color: #000;
-      font-family: Caladea;
-      font-size: 12px;
+      font-family: Caladea, sans-serif;
       font-style: normal;
       font-weight: 400;
       line-height: normal; }
     .aside__botton_second {
       cursor: pointer;
       display: flex;
+      justify-content: center;
       align-items: center; }
       .aside__botton_second img {
+        margin-right: 10px;
         width: 20px;
         height: 20px; }
       .aside__botton_second a {

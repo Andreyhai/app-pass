@@ -1,79 +1,37 @@
 .aside {
+  max-width: 330px;
+  //display: grid;
+  //grid-template-rows: 30% 50% 20%;
   margin-left: 0.5vw;
   border-radius: 25px;
-  height: 90vh;
+  //height: 85vh;
+  height: min-content;
   width: 19vw;
   border: 2px solid #000;
   background: #F9FBE9;
   margin-top: 12vh;
-  padding-top: 20px;
+  padding: 20px;
   border: 2px solid rgba(0,2,72,0.97);
+  min-width: 250px;
 
-  &__menu {
-    padding: 30px 100px 30px 30px;
-    display: flex;
-    align-items: center;
-    &icon {
-      width: 40px;
-      height: 40px;
-    }
-    &title {
-      padding-left: 30px;
-      color: #000;
-      text-align: center;
-      font-family: Italianno;
-      font-size: 50px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-    }
+  &__title {
+    height: 150%;
+    width: 100%;
+    font-size: 200%;
   }
 
-  &__links {
-    &_link {
-      display: flex;
-      padding: 20px 0 10px 50px;
-      cursor: pointer;
-      img {
-        width: 30px;
-        height: 30px;
-        opacity: 0;
-      }
 
-      &item {
-        padding-left: 10px;
-        color: #000;
-        font-family: Caladea;
-        font-size: 30px;
-        font-style: normal;
-        font-weight: 300;
-        line-height: normal;
-      }
-    }
-
-    &_link:hover {
-      img {
-        opacity: 1;
-      }
-    }
-    &_link:hover {
-      div {
-        color: #CD7309;
-      }
-    }
-  }
 
   &__botton {
-    height: 53vh;
-    //background: #000;
+    width: 100%;
     display: flex;
     align-items: end;
-    padding: 20px;
     justify-content: space-between;
+    //min-width: fit-content;
     &_first {
       color: #000;
-      font-family: Caladea;
-      font-size: 12px;
+      font-family: Caladea, sans-serif;
+      //font-size: 15px;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
@@ -81,8 +39,10 @@
     &_second {
       cursor: pointer;
       display: flex;
+      justify-content: center;
       align-items: center;
       img {
+        margin-right: 10px;
         width: 20px;
         height: 20px;
       }

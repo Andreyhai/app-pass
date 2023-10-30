@@ -6,7 +6,46 @@ import axios from "axios";
 import Header from "../../components/Header/Header";
 import Aside from "../../components/Asside/Asside";
 import Content from "../../components/content/Content";
+import { ThemeProvider } from "styled-components";
+import { darkTheme, lightTheme, GlobalStyles } from "../../theme";
+import Footer from "../../components/footer/Footer";
+import Modal from "../../components/modal/Modal";
+
+const Object = {
+    email: "daemangasaryan@gmail.com111111",
+    firstName: "Davit",
+    lastName: "Mangasaryan",
+    sureName: "Karenovich",
+    Date: "10.12.2023",
+    nickName: "davo123",
+}
+
 const Home = (props) => {
+    const [modalActive, setModalActive] = useState(false)
+
+    const [title, setTitle] = useState("")
+    const [login, setLogin] = useState("")
+    const [password, setPassword] = useState("")
+
+    const closeActive = () => {
+        console.log("closed")
+        setModalActive(false)
+        setTitle("")
+        setLogin("")
+        setPassword("")
+    }
+
+    const openActive = (title, login, password) => {
+        setModalActive(true)
+        setTitle(title)
+        setLogin(login)
+        setPassword(password)
+    }
+    const [theme, setTheme] = useState("light");
+
+    const switchTheme = () => {
+        theme === "light" ? setTheme("dark") : setTheme("light");
+    };
 
     let l = [
         {
@@ -27,54 +66,7 @@ const Home = (props) => {
             login: "spacegame@gmail.com",
             pass: "3333",
         },
-        {
-            id: "3",
-            name: "youtube",
-            login: "spacegame@gmail.com",
-            pass: "3333",
-        },
-        {
-            id: "3",
-            name: "youtube",
-            login: "spacegame@gmail.com",
-            pass: "3333",
-        },
-        {
-            id: "3",
-            name: "youtube",
-            login: "spacegame@gmail.com",
-            pass: "3333",
-        },
-        {
-            id: "3",
-            name: "youtube",
-            login: "spacegame@gmail.com",
-            pass: "3333",
-        },
-        {
-            id: "3",
-            name: "youtube",
-            login: "spacegame@gmail.com",
-            pass: "3333",
-        },
-        {
-            id: "3",
-            name: "youtube",
-            login: "spacegame@gmail.com",
-            pass: "3333",
-        },
-        {
-            id: "3",
-            name: "youtube",
-            login: "spacegame@gmail.com",
-            pass: "3333",
-        },
-        {
-            id: "3",
-            name: "youtube",
-            login: "spacegame@gmail.com",
-            pass: "3333",
-        },
+
     ]
 
     // if (getCookie("jwt")) {
@@ -102,18 +94,72 @@ const Home = (props) => {
     //     )
 
     return (
-        <div className={style.body}>
-            <Header />
-            <div className={"flex"}>
-                <Aside />
-                <Content list={l} />
-                <Aside />
-            </div>
 
-        </div>
+        <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+            <GlobalStyles />
+            <div className="App">
+                {
+                    modalActive && <Modal
+                        active={props.modal}
+                        change={closeActive}
+                        theme={props.theme}
+                        title={title}
+                        login={login}
+                        password={password}
+                        nickName={Object.nickName}
+                        firstName={Object.firstName}
+                        lastName={Object.lastName}
+                        sureName={Object.sureName}
+                    />
+                }
+                <div className={style.body + "flex min-h-screen flex-col content-center"}>
+                    <Header
+                        onClick={switchTheme}
+                        theme={theme}
+                        email={Object.email}
+                        login={Object.nickName}
+                        modal={modalActive}
+                        open={openActive}
+                        close={closeActive}
+                    />
+                    <div className={"flex"}>
+                        <Aside
+                            title={"Аккаунт"}
+                            bottom={true}
+                            theme={theme}
+                            email={Object.email}
+                            firstName={Object.firstName}
+                            lastName={Object.lastName}
+                            sureName={Object.sureName}
+                            Date={Object.Date}
+                            nickName={Object.nickName}
+                        />
+                        <Content
+                            list={l}
+                            theme={theme}
+                            modal={modalActive}
+                            open={openActive}
+                            close={closeActive}
+                            login={login}
+                            password={password}
+                        />
+                        <Aside
+                            title={"Меню"}
+                            bottom={false}
+                            theme={theme}
+                            open={openActive}
+                            close={closeActive}
+                            modal={modalActive}
+                            data={Object}
+                        />
+                    </div>
+                    <Footer />
+                </div>
+            </div>
+        </ThemeProvider>
     );
-    // } else {
-    //     window.location.replace(LOGIN_ROUTE)
+    {/*// } else {*/}
+    {/*//     window.location.replace(LOGIN_ROUTE)*/}
     // }
 };
 
